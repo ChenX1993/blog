@@ -1,18 +1,43 @@
-sudo: false
-language: go
-git:
-    depth: 1
-install: go get -v github.com/spf13/hugo
+language: node_js
+node_js: stable
+
+# Travis-CI Caching
+cache:
+  directories:
+    - node_modules
+    - public/build
+    - public/css
+    - public/js
+    - public/fancybox
+    - public/dist
+    - public/lib
+
+
+# S: Build Lifecycle
+install:
+  - npm install
+
+before_script:
+ # - npm install -g gulp
+
+
 script:
-    hugo
-deploy:
-    provider: pages
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN
-    on:
-        branch: master
-    local_dir: public
-    repo: ChenX1993/ChenX1993.github.io
-    target_branch: master
-    email: xc454981894@gmial.com
-    name: ChenX1993
+  - hexo g
+
+
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "ChenX1993"
+  - git config user.email "xc454981894@gmail.com"
+  - git add .
+  - git commit -m "Update site"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
+# E: Build LifeCycle
+
+branches:
+  only:
+    - dev
+env:
+ global:
+   - GH_REF: github.com/ChenX1993/blog.git

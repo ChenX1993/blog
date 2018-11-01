@@ -79,8 +79,8 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:chenx1993/chenx1993.github.io.git
-  branch: master
+  repo: git@github.com:ChenX1993/blog.git
+  branch: gh-pages
   
 #Local Search
 search:
