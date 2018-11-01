@@ -97,6 +97,7 @@ menu:
   categories: /categories/ || th
   tags: /tags/ || tags
   archives: /archives/ || archive
+  TODO: /TODO/ || list-ul
   colors: /colors/ || adjust
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap

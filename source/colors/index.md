@@ -1,6 +1,7 @@
 ---
 title: colors
 date: 2018-10-31 01:19:12
+comments: false
 ---
 <html>
    <body>
