@@ -22,6 +22,7 @@ before_script:
 
 
 script:
+  - hexo clean
   - hexo g
 
 
@@ -31,7 +32,7 @@ after_script:
   - git config user.name "ChenX1993"
   - git config user.email "xc454981894@gmail.com"
   - git add .
-  - git commit -m "Update site"
+  - git commit -m "New Commit"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
 # E: Build LifeCycle
 
