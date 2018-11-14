@@ -98,6 +98,9 @@ git push
 
 5. 然后可以去github上自己的托管空间上创建pull request。
 
+# Folk Repo 保持master始终和Upstream同步
+[https://stackoverflow.com/questions/29049650/github-fork-your-branch-is-5-commits-ahead-how-to-clean-this-without-pushing](https://stackoverflow.com/questions/29049650/github-fork-your-branch-is-5-commits-ahead-how-to-clean-this-without-pushing)
+
 # Current GitHub Collaboration Flow
 # Recommended method via Ry's Git Tutorial
 
