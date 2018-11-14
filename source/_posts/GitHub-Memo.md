@@ -49,6 +49,13 @@ git remote add origin <url>
 
 `git remote set-url <name origin/upstream> <newurl>`
 
+# 远程分支
+## 创建
+`git push -u origin mybranch`
+
+## 删除
+`git push origin --delete <branchName>`
+
 # Work FLow
 
 # Pull Request
