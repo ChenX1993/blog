@@ -49,12 +49,18 @@ git remote add origin <url>
 
 `git remote set-url <name origin/upstream> <newurl>`
 
+
 # 远程分支
 ## 创建
 `git push -u origin mybranch`
 
 ## 删除
 `git push origin --delete <branchName>`
+
+
+# Commit大文件无法push
+`git log`查看提交历史  
+`git reset commit_id` 撤销未被传送到远程代码库的提交
 
 # Work FLow
 
