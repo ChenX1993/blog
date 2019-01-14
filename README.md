@@ -9,6 +9,11 @@
 
 
 ## Hexo指令
+### 安装
+`brew install node`
+
+`npm install hexo-cli -g`
+
 ### 构建
 `hexo init [folder name]`  
 
