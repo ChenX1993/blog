@@ -12,6 +12,8 @@
 ### 安装
 `brew install node`
 
+`npm install -g hexo`
+
 `npm install hexo-cli -g`
 
 ### 构建
