@@ -140,6 +140,8 @@ A shortcut to the `git fetch origin` then `git rebase origin/master` is to `git 
 Be sure to `git branch -d` before rebasing `origin/master`, otherwise when you delete your local branch later, you'll run into an `not fully merged` error like this:
 
 # SSH
+
+## Create and test the ssh key
 Create a repo. Make sure there is at least one file in it (even just the README) Generate ssh key:  
 
 ```
@@ -152,5 +154,25 @@ Copy the contents of the file ~/.ssh/id_rsa.pub to your SSH keys in your GitHub 
 ssh -T git@github.com
 clone the repo:
 git clone git://github.com/username/your-repository
+```
+
+## Modify .ssh/config file
+
+```
+vim ~/.ssh/config
+```
+
+Add code like this:
+```
+Host *
+    AddKeysToAgent yes
+    UseKeychain yes
+      
+# Default Github
+Host github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/github_rsa
+  
 ```
 
