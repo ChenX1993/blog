@@ -1,5 +1,5 @@
 ---
-title: Mac_Plugin
+title: Mac Plugin
 date: 2019-01-14 11:39:57
 tags:
 ---

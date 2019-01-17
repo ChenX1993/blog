@@ -6,20 +6,68 @@ tags:
 categories:
 - tools
 ---
+![](/images/git_workflow.png)
 # 一些常用指令
+## 回退到上一个版本，回退到某一特定的commit快照:  
+``` 
+git reset --hard HEAD^
+git reset --hard commit_id
+git log //查看命令历史，以便确定要回到哪个版本，即commit_id
+```
+
+## Checkout
+> 管理的是修改不是文件
+
+`git checkout -- readme.txt`
+
+>
+命令git checkout -- readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销，这里有两种情况：  
+一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；  
+一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。  
+总之，就是让这个文件回到最近一次git commit或git add时的状态  
+Git同样告诉我们，用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区  
+场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。  
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。  
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库
+
+## 删除
+`rm test.txt
+`
+
+1. 确认要删，git commit
+2. 误删 git checkout – file
+
+## 分支
+* 查看分支：`git branch`
+* 创建分支：`git branch <name>`
+* 切换分支：`git checkout <name>`
+* 创建+切换分支：`git checkout -b <name>`
+* 合并某分支到当前分支：`git merge <name>`
+* 删除分支：`git branch -d <name>`
+
+当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。  
+用git log --graph命令可以看到分支合并图
+
+* 命令git push origin <tagname>可以推送一个本地标签；
+* 命令git push origin --tags可以推送全部未推送过的本地标签；
+* 命令git tag -d <tagname>可以删除一个本地标签；
+* 命令git push origin :refs/tags/<tagname>可以删除一个远程标签
+
+## Rebase: 合并commit  
 `git rebase -i HEAD~3`  
 `git rebase -i 3a4226b`  
 
-如果git rebase 有冲突
+
+## 如果git rebase 有冲突
 
 ```
 git add .
 git rebase --continue
 ```
-如果想放弃rebase  
+## 如果想放弃rebase  
 `git rebase --abort`
 
-强制push  
+## 强制push  
 `git push origin master --force`
 
 `git add -u`: 将文件的修改、文件删除，添加到暂缓区  
@@ -61,8 +109,6 @@ git remote add origin <url>
 # Commit大文件无法push
 `git log`查看提交历史  
 `git reset commit_id` 撤销未被传送到远程代码库的提交
-
-# Work FLow
 
 # Pull Request
 [https://www.cnblogs.com/kidsitcn/p/5319282.html](https://www.cnblogs.com/kidsitcn/p/5319282.html)
@@ -140,6 +186,7 @@ A shortcut to the `git fetch origin` then `git rebase origin/master` is to `git 
 Be sure to `git branch -d` before rebasing `origin/master`, otherwise when you delete your local branch later, you'll run into an `not fully merged` error like this:
 
 # SSH
+SSH key放在本地.ssh/文件下
 
 ## Create and test the ssh key
 Create a repo. Make sure there is at least one file in it (even just the README) Generate ssh key:  

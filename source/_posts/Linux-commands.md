@@ -1,5 +1,5 @@
 ---
-title: Linux-commands  
+title: Linux Commands  
 date: 2019-01-16 01:12:44  
 tags:
 ---
