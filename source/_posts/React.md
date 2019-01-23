@@ -9,3 +9,10 @@ $ create-react-app my-app
 $ cd my-app/
 $ npm start
 ```
+
+## Integrate Bootstrap
+```
+npm install bootstrap
+
+import "bootstrap/dist/css/bootstrap.css";
+```
