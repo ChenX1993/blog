@@ -16,3 +16,8 @@ npm install bootstrap
 
 import "bootstrap/dist/css/bootstrap.css";
 ```
+
+## React Plugin for Visual Studio Code
+* Simple React Snippets
+* Prettier - Code formatter
+
