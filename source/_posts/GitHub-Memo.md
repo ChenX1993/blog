@@ -8,6 +8,27 @@ categories:
 ---
 ![](/images/git_workflow.png)
 # 一些常用指令
+## .gitignore
+.gitignore 文件只能作用于 Untracked Files，也就是那些从来没有被 Git 记录过的文件（自添加以后，从未 add 及 commit 过的文件）。  
+规则不生效，是因为那些 .log 文件曾经被 Git 记录过，因此 .gitignore 对它们完全无效。
+
+* 从 Git 的数据库中删除对于该文件的追踪；
+* 把对应的规则写入 .gitignore，让忽略真正生效；
+* 提交＋推送。
+
+1. 取消track，保留git里的文件(保留本地文件):    
+* `git update-index –assume-unchanged –path `  
+* `git update-index –no-assume-unchanged –path` 可以取消忽略文件 
+* 但是忽略的文件多了，想找出所有被忽略的文件: `git ls-files -v | grep '^h\ '`
+
+2. 取消track，保留git里的文件(保留本地文件):    
+* `git update-index --skip-worktree –path `  
+* `git update-index --no-skip-worktree –path` 可以取消忽略文件 
+* 但是忽略的文件多了，想找出所有被忽略的文件: `git ls-files -v | grep ^S`
+
+3. 取消track, 删除git里的文件:  
+`git rm --cached -path`
+
 ## 回退到上一个版本，回退到某一特定的commit快照:  
 ``` 
 git reset --hard HEAD^
