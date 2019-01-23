@@ -10,6 +10,15 @@ $ cd my-app/
 $ npm start
 ```
 
+## Deployment
+`npm run build`
+
+**Static Server:**
+```
+npm install -g serve
+serve -s build
+```
+
 ## Integrate Bootstrap
 ```
 npm install bootstrap
