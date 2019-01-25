@@ -17,8 +17,8 @@ categories:
 * 提交＋推送。
 
 1. 取消track，保留git里的文件(保留本地文件):    
-* `git update-index –assume-unchanged –path `  
-* `git update-index –no-assume-unchanged –path` 可以取消忽略文件 
+* `git update-index --assume-unchanged -path `  
+* `git update-index --no-assume-unchanged -path` 可以取消忽略文件 
 * 但是忽略的文件多了，想找出所有被忽略的文件: `git ls-files -v | grep '^h\ '`
 
 2. 取消track，保留git里的文件(保留本地文件):    
