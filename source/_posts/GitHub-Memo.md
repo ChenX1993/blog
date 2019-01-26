@@ -8,6 +8,26 @@ categories:
 ---
 ![](/images/git_workflow.png)
 # 一些常用指令
+
+## Merge your branch after CR:
+Before merge your branch to mainline, you first need to get the most recent mainline code:
+```
+git checkout mainline
+git pull
+git checkout <branch_name>
+git merge mainline
+git push
+```
+
+After that, you can merge your branch:
+
+```
+git checkout mainline
+git pull
+git merge  <branch_name>
+git push
+```
+
 ## .gitignore
 .gitignore 文件只能作用于 Untracked Files，也就是那些从来没有被 Git 记录过的文件（自添加以后，从未 add 及 commit 过的文件）。  
 规则不生效，是因为那些 .log 文件曾经被 Git 记录过，因此 .gitignore 对它们完全无效。
