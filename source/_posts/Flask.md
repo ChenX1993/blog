@@ -55,3 +55,17 @@ FLASK_APP=manage.py FLASK_ENV=development flask run
  
 ## 安装requirements.txt依赖
 `pip install -r requirements.txt`
+
+# os命令
+## Download folder
+```
+def get_download_folder():
+    """
+    Get mac downloads folder
+    """
+    home = os.path.expanduser("~")
+    return os.path.join(home, "Downloads")
+```
+
+## Username
+`os.getlogin()`
