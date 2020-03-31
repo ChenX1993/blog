@@ -45,6 +45,9 @@ tags:
 ### ifconfig
 * 找到ip
 
+### lsof
+* lsof -i tcp:5000
+
 ### shell
 * 脚本编写
 * 执行权限

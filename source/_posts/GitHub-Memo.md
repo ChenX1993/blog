@@ -94,6 +94,12 @@ Git同样告诉我们，用命令git reset HEAD file可以把暂存区的修改�
 * 命令git tag -d <tagname>可以删除一个本地标签；
 * 命令git push origin :refs/tags/<tagname>可以删除一个远程标签
 
+## Branch Track
+
+```
+git branch -u origin/<branch name>
+```
+
 ## Rebase: 合并commit  
 `git rebase -i HEAD~3`  
 `git rebase -i 3a4226b`  
@@ -251,6 +257,7 @@ vim ~/.ssh/config
 ```
 
 Add code like this:
+
 ```
 Host *
     AddKeysToAgent yes
@@ -261,6 +268,5 @@ Host github.com
     HostName github.com
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/github_rsa
-  
 ```
 
