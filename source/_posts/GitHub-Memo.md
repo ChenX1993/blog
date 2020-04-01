@@ -270,3 +270,11 @@ Host github.com
     IdentityFile ~/.ssh/github_rsa
 ```
 
+## Git Commit Template
+Download template file: [https://gist.github.com/ChenX1993/38c99c3014aad0c134818b9beaa7a89b](https://gist.github.com/ChenX1993/38c99c3014aad0c134818b9beaa7a89b)  
+
+And run:
+
+```
+git config --global commit.template ~/.git-commit-template.txt
+```
