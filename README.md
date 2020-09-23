@@ -7,6 +7,8 @@
 
 `git push origin dev`
 
+## Access Via Github
+[https://chenx1993.github.io/blog/](https://chenx1993.github.io/blog/)
 
 ## Hexo指令
 ### 安装
