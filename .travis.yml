@@ -1,5 +1,6 @@
 language: node_js
-node_js: stable
+# https://github.com/zalando-incubator/hexo-theme-doc/issues/149
+node_js: 12
 
 # Travis-CI Caching
 cache:
