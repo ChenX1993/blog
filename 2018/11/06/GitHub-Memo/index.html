@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="github,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一些常用指令Merge your branch after CR:Before merge your branch to mainline, you first need to get the most recent mainline code:12345git checkout mainlinegit pullgit checkout &amp;lt;branch_name&amp;gt;git merge">
+<meta name="keywords" content="github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub Memo">
+<meta property="og:url" content="https://masxch.com/2018/11/06/GitHub-Memo/index.html">
+<meta property="og:site_name" content="Chen&#39;s Note">
+<meta property="og:description" content="一些常用指令Merge your branch after CR:Before merge your branch to mainline, you first need to get the most recent mainline code:12345git checkout mainlinegit pullgit checkout &amp;lt;branch_name&amp;gt;git merge">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://masxch.com/images/git_workflow.png">
+<meta property="og:updated_time" content="2020-09-23T06:56:10.327Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitHub Memo">
+<meta name="twitter:description" content="一些常用指令Merge your branch after CR:Before merge your branch to mainline, you first need to get the most recent mainline code:12345git checkout mainlinegit pullgit checkout &amp;lt;branch_name&amp;gt;git merge">
+<meta name="twitter:image" content="https://masxch.com/images/git_workflow.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://masxch.com/2018/11/06/GitHub-Memo/">
+
+
+
+
+
+  <title>GitHub Memo | Chen's Note</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chen's Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Cast a code eye, on Life on Death</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-todo">
+          <a href="/TODO/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-list-ul"></i> <br>
+            
+            TODO
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-colors">
+          <a href="/colors/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-adjust"></i> <br>
+            
+            colors
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://masxch.com/2018/11/06/GitHub-Memo/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Xu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chen's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GitHub Memo</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-06T09:31:28+00:00">
+                2018-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/tools/" itemprop="url" rel="index">
+                    <span itemprop="name">tools</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/06/GitHub-Memo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/06/GitHub-Memo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/11/06/GitHub-Memo/" class="leancloud_visitors" data-flag-title="GitHub Memo">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/git_workflow.png" alt=""></p>
+<h1 id="一些常用指令"><a href="#一些常用指令" class="headerlink" title="一些常用指令"></a>一些常用指令</h1><h2 id="Merge-your-branch-after-CR"><a href="#Merge-your-branch-after-CR" class="headerlink" title="Merge your branch after CR:"></a>Merge your branch after CR:</h2><p>Before merge your branch to mainline, you first need to get the most recent mainline code:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git checkout mainline</span><br><span class="line">git pull</span><br><span class="line">git checkout &lt;branch_name&gt;</span><br><span class="line">git merge mainline</span><br><span class="line">git push</span><br></pre></td></tr></table></figure></p>
+<p>After that, you can merge your branch:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout mainline</span><br><span class="line">git pull</span><br><span class="line">git merge  &lt;branch_name&gt;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<h2 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h2><p>.gitignore 文件只能作用于 Untracked Files，也就是那些从来没有被 Git 记录过的文件（自添加以后，从未 add 及 commit 过的文件）。<br>规则不生效，是因为那些 .log 文件曾经被 Git 记录过，因此 .gitignore 对它们完全无效。</p>
+<ul>
+<li>从 Git 的数据库中删除对于该文件的追踪；</li>
+<li>把对应的规则写入 .gitignore，让忽略真正生效；</li>
+<li>提交＋推送。</li>
+</ul>
+<ol>
+<li>取消track，保留git里的文件(保留本地文件):    </li>
+</ol>
+<ul>
+<li><code>git update-index --assume-unchanged -path</code>  </li>
+<li><code>git update-index --no-assume-unchanged -path</code> 可以取消忽略文件 </li>
+<li>但是忽略的文件多了，想找出所有被忽略的文件: <code>git ls-files -v | grep &#39;^h\ &#39;</code></li>
+</ul>
+<ol start="2">
+<li>取消track，保留git里的文件(保留本地文件):    </li>
+</ol>
+<ul>
+<li><code>git update-index --skip-worktree –path</code>  </li>
+<li><code>git update-index --no-skip-worktree –path</code> 可以取消忽略文件 </li>
+<li>但是忽略的文件多了，想找出所有被忽略的文件: <code>git ls-files -v | grep ^S</code></li>
+</ul>
+<ol start="3">
+<li>取消track, 删除git里的文件:<br><code>git rm --cached -path</code></li>
+</ol>
+<h2 id="回退到上一个版本，回退到某一特定的commit快照"><a href="#回退到上一个版本，回退到某一特定的commit快照" class="headerlink" title="回退到上一个版本，回退到某一特定的commit快照:"></a>回退到上一个版本，回退到某一特定的commit快照:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br><span class="line">git reset --hard commit_id</span><br><span class="line">git log //查看命令历史，以便确定要回到哪个版本，即commit_id</span><br></pre></td></tr></table></figure>
+<h2 id="Checkout"><a href="#Checkout" class="headerlink" title="Checkout"></a>Checkout</h2><blockquote>
+<p>管理的是修改不是文件</p>
+</blockquote>
+<p><code>git checkout -- readme.txt</code></p>
+<blockquote>
+</blockquote>
+<p>命令git checkout – readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销，这里有两种情况：<br>一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；<br>一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。<br>总之，就是让这个文件回到最近一次git commit或git add时的状态<br>Git同样告诉我们，用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区<br>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout – file。<br>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。<br>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库</p>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p><code>rm test.txt</code></p>
+<ol>
+<li>确认要删，git commit</li>
+<li>误删 git checkout – file</li>
+</ol>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><ul>
+<li>查看分支：<code>git branch</code></li>
+<li>创建分支：<code>git branch &lt;name&gt;</code></li>
+<li>切换分支：<code>git checkout &lt;name&gt;</code></li>
+<li>创建+切换分支：<code>git checkout -b &lt;name&gt;</code></li>
+<li>合并某分支到当前分支：<code>git merge &lt;name&gt;</code></li>
+<li>删除分支：<code>git branch -d &lt;name&gt;</code></li>
+</ul>
+<p>当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。<br>用git log –graph命令可以看到分支合并图</p>
+<ul>
+<li>命令git push origin <tagname>可以推送一个本地标签；</tagname></li>
+<li>命令git push origin –tags可以推送全部未推送过的本地标签；</li>
+<li>命令git tag -d <tagname>可以删除一个本地标签；</tagname></li>
+<li>命令git push origin :refs/tags/<tagname>可以删除一个远程标签</tagname></li>
+</ul>
+<h2 id="Branch-Track"><a href="#Branch-Track" class="headerlink" title="Branch Track"></a>Branch Track</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -u origin/&lt;branch name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Rebase-合并commit"><a href="#Rebase-合并commit" class="headerlink" title="Rebase: 合并commit"></a>Rebase: 合并commit</h2><p><code>git rebase -i HEAD~3</code><br><code>git rebase -i 3a4226b</code>  </p>
+<h2 id="如果git-rebase-有冲突"><a href="#如果git-rebase-有冲突" class="headerlink" title="如果git rebase 有冲突"></a>如果git rebase 有冲突</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git rebase --continue</span><br></pre></td></tr></table></figure>
+<h2 id="如果想放弃rebase"><a href="#如果想放弃rebase" class="headerlink" title="如果想放弃rebase"></a>如果想放弃rebase</h2><p><code>git rebase --abort</code></p>
+<h2 id="强制push"><a href="#强制push" class="headerlink" title="强制push"></a>强制push</h2><p><code>git push origin master --force</code></p>
+<p><code>git add -u</code>: 将文件的修改、文件删除，添加到暂缓区<br><code>git add .</code>: 将文件的修改、文件的新建，添加到暂缓区<br><code>git add -A</code>: 两者的结合，修改，新建，删除</p>
+<h1 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h1><h2 id="查看远程仓库信息"><a href="#查看远程仓库信息" class="headerlink" title="查看远程仓库信息"></a>查看远程仓库信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 查看关联的远程仓库的名称</span><br><span class="line">git remote</span><br><span class="line"># 查看关联的远程仓库的详细信息</span><br><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+<h2 id="添加远程仓库的关联"><a href="#添加远程仓库的关联" class="headerlink" title="添加远程仓库的关联"></a>添加远程仓库的关联</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># git_url 为你的远程仓库的 url，可采用 http 协议或 ssh（git） 协议</span><br><span class="line">git remote add origin &lt;url&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="删除远程仓库的关联"><a href="#删除远程仓库的关联" class="headerlink" title="删除远程仓库的关联"></a>删除远程仓库的关联</h2><p><code>git remote remove &lt;name&gt;</code></p>
+<h2 id="修改远程仓库的关联"><a href="#修改远程仓库的关联" class="headerlink" title="修改远程仓库的关联"></a>修改远程仓库的关联</h2><p><code>git remote set-url &lt;name origin/upstream&gt; &lt;newurl&gt;</code></p>
+<h1 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h1><h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><p><code>git push -u origin mybranch</code></p>
+<h2 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h2><p><code>git push origin --delete &lt;branchName&gt;</code></p>
+<h1 id="Commit大文件无法push"><a href="#Commit大文件无法push" class="headerlink" title="Commit大文件无法push"></a>Commit大文件无法push</h1><p><code>git log</code>查看提交历史<br><code>git reset commit_id</code> 撤销未被传送到远程代码库的提交</p>
+<h1 id="Pull-Request"><a href="#Pull-Request" class="headerlink" title="Pull Request"></a>Pull Request</h1><p><a href="https://www.cnblogs.com/kidsitcn/p/5319282.html" target="_blank" rel="noopener">https://www.cnblogs.com/kidsitcn/p/5319282.html</a></p>
+<h1 id="Git-fork出来的project和上游project同步更新"><a href="#Git-fork出来的project和上游project同步更新" class="headerlink" title="Git fork出来的project和上游project同步更新"></a>Git fork出来的project和上游project同步更新</h1><blockquote>
+<p>问题描述：当我们在github上fork出一个项目后，如果原有的项目更新了，怎样使我们fork出来的项目和原有项目保持同步呢？怎样提交我们的代码更新呢？即怎样保持fork出的项目和上游项目保持更新，怎样创建pull request？关键步骤是使用git 的rebase命令。</p>
+</blockquote>
+<p> 步骤：</p>
+<ol>
+<li>在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。</li>
+</ol>
+<p>如: git remote add upstream <a href="https://github.scm.corp.ebay.com/montage/frontend-ui-workspace" target="_blank" rel="noopener">https://github.scm.corp.ebay.com/montage/frontend-ui-workspace</a></p>
+<p>其中 #upstream 表示上游代码库名， 该名字可以任意。 </p>
+<ol start="2">
+<li>将本地的修改提交commit</li>
+</ol>
+<ol start="3">
+<li>在每次 Pull Request 前做如下操作，即可实现和上游版本库的同步。</li>
+</ol>
+<pre><code>3.1 ： git remote update upstream
+
+3.2 ： git rebase upstream/{branch name}
+</code></pre><p>需要注意的是在操作3.2之前，一定要切换到到{branch name}所指定的branch，如切换到develop branch</p>
+<p>执行: git checkout develop</p>
+<p>当然还有更简单的方法，即执行git pull upstream {branch name}</p>
+<ol start="4">
+<li>Push 代码到 Github</li>
+</ol>
+<p>git push</p>
+<ol start="5">
+<li>然后可以去github上自己的托管空间上创建pull request。</li>
+</ol>
+<h1 id="Folk-Repo-保持master始终和Upstream同步"><a href="#Folk-Repo-保持master始终和Upstream同步" class="headerlink" title="Folk Repo 保持master始终和Upstream同步"></a>Folk Repo 保持master始终和Upstream同步</h1><p><a href="https://stackoverflow.com/questions/29049650/github-fork-your-branch-is-5-commits-ahead-how-to-clean-this-without-pushing" target="_blank" rel="noopener">https://stackoverflow.com/questions/29049650/github-fork-your-branch-is-5-commits-ahead-how-to-clean-this-without-pushing</a></p>
+<h1 id="Current-GitHub-Collaboration-Flow"><a href="#Current-GitHub-Collaboration-Flow" class="headerlink" title="Current GitHub Collaboration Flow"></a>Current GitHub Collaboration Flow</h1><h1 id="Recommended-method-via-Ry’s-Git-Tutorial"><a href="#Recommended-method-via-Ry’s-Git-Tutorial" class="headerlink" title="Recommended method via Ry’s Git Tutorial"></a>Recommended method via Ry’s Git Tutorial</h1><p><em>“Never, ever rebase commits that have been pushed to a shared repository.”–Hodson, Ryan</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b css-edits</span><br><span class="line">git commit -a -m &quot;Add CSS styles for headings and links&quot;</span><br><span class="line">git rebase -i master # rebase to local master</span><br><span class="line">git checkout master</span><br><span class="line">git merge --ff-only css-edits</span><br><span class="line">git branch -d css-edits</span><br><span class="line"></span><br><span class="line">git fetch origin</span><br><span class="line">git log master..origin/master</span><br><span class="line">git log origin/master..master</span><br><span class="line">git rebase origin/master</span><br><span class="line"></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<p>A shortcut to the <code>git fetch origin</code> then <code>git rebase origin/master</code> is to <code>git pull --rebase</code>. </p>
+<p>Be sure to <code>git branch -d</code> before rebasing <code>origin/master</code>, otherwise when you delete your local branch later, you’ll run into an <code>not fully merged</code> error like this:</p>
+<h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><p>SSH key放在本地.ssh/文件下</p>
+<h2 id="Create-and-test-the-ssh-key"><a href="#Create-and-test-the-ssh-key" class="headerlink" title="Create and test the ssh key"></a>Create and test the ssh key</h2><p>Create a repo. Make sure there is at least one file in it (even just the README) Generate ssh key:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<p>Copy the contents of the file ~/.ssh/id_rsa.pub to your SSH keys in your GitHub account settings. Test SSH key:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line">clone the repo:</span><br><span class="line">git clone git://github.com/username/your-repository</span><br></pre></td></tr></table></figure>
+<h2 id="Modify-ssh-config-file"><a href="#Modify-ssh-config-file" class="headerlink" title="Modify .ssh/config file"></a>Modify .ssh/config file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/config</span><br></pre></td></tr></table></figure>
+<p>Add code like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">    AddKeysToAgent yes</span><br><span class="line">    UseKeychain yes</span><br><span class="line">      </span><br><span class="line"># Default Github</span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/github_rsa</span><br></pre></td></tr></table></figure>
+<h2 id="Git-Commit-Template"><a href="#Git-Commit-Template" class="headerlink" title="Git Commit Template"></a>Git Commit Template</h2><p>Download template file: <a href="https://gist.github.com/ChenX1993/38c99c3014aad0c134818b9beaa7a89b" target="_blank" rel="noopener">https://gist.github.com/ChenX1993/38c99c3014aad0c134818b9beaa7a89b</a>  </p>
+<p>And run:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global commit.template ~/.git-commit-template.txt</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/github/" rel="tag"># github</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/30/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/14/Markdown-grammar/" rel="prev" title="Markdown Grammar">
+                Markdown Grammar <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Chen Xu">
+            
+              <p class="site-author-name" itemprop="name">Chen Xu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chenx1993" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="xc454981894@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/yourname" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/yourname" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一些常用指令"><span class="nav-number">1.</span> <span class="nav-text">一些常用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Merge-your-branch-after-CR"><span class="nav-number">1.1.</span> <span class="nav-text">Merge your branch after CR:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitignore"><span class="nav-number">1.2.</span> <span class="nav-text">.gitignore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回退到上一个版本，回退到某一特定的commit快照"><span class="nav-number">1.3.</span> <span class="nav-text">回退到上一个版本，回退到某一特定的commit快照:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Checkout"><span class="nav-number">1.4.</span> <span class="nav-text">Checkout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除"><span class="nav-number">1.5.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支"><span class="nav-number">1.6.</span> <span class="nav-text">分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Branch-Track"><span class="nav-number">1.7.</span> <span class="nav-text">Branch Track</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rebase-合并commit"><span class="nav-number">1.8.</span> <span class="nav-text">Rebase: 合并commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果git-rebase-有冲突"><span class="nav-number">1.9.</span> <span class="nav-text">如果git rebase 有冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果想放弃rebase"><span class="nav-number">1.10.</span> <span class="nav-text">如果想放弃rebase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制push"><span class="nav-number">1.11.</span> <span class="nav-text">强制push</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程仓库"><span class="nav-number">2.</span> <span class="nav-text">远程仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看远程仓库信息"><span class="nav-number">2.1.</span> <span class="nav-text">查看远程仓库信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加远程仓库的关联"><span class="nav-number">2.2.</span> <span class="nav-text">添加远程仓库的关联</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除远程仓库的关联"><span class="nav-number">2.3.</span> <span class="nav-text">删除远程仓库的关联</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改远程仓库的关联"><span class="nav-number">2.4.</span> <span class="nav-text">修改远程仓库的关联</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程分支"><span class="nav-number">3.</span> <span class="nav-text">远程分支</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建"><span class="nav-number">3.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除-1"><span class="nav-number">3.2.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Commit大文件无法push"><span class="nav-number">4.</span> <span class="nav-text">Commit大文件无法push</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pull-Request"><span class="nav-number">5.</span> <span class="nav-text">Pull Request</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-fork出来的project和上游project同步更新"><span class="nav-number">6.</span> <span class="nav-text">Git fork出来的project和上游project同步更新</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Folk-Repo-保持master始终和Upstream同步"><span class="nav-number">7.</span> <span class="nav-text">Folk Repo 保持master始终和Upstream同步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Current-GitHub-Collaboration-Flow"><span class="nav-number">8.</span> <span class="nav-text">Current GitHub Collaboration Flow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Recommended-method-via-Ry’s-Git-Tutorial"><span class="nav-number">9.</span> <span class="nav-text">Recommended method via Ry’s Git Tutorial</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH"><span class="nav-number">10.</span> <span class="nav-text">SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-and-test-the-ssh-key"><span class="nav-number">10.1.</span> <span class="nav-text">Create and test the ssh key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modify-ssh-config-file"><span class="nav-number">10.2.</span> <span class="nav-text">Modify .ssh/config file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Commit-Template"><span class="nav-number">10.3.</span> <span class="nav-text">Git Commit Template</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chen Xu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://hexoBlog.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://masxch.com/2018/11/06/GitHub-Memo/';
+          this.page.identifier = '2018/11/06/GitHub-Memo/';
+          this.page.title = 'GitHub Memo';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://hexoBlog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("P1CEH30a4dLFHP4R94ShSxhc-gzGzoHsz", "jcI2nGsvuVuczWErsmNJ5jdS");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
